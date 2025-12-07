@@ -17,6 +17,7 @@ user =driver.find_element(By.ID,"userName")
 user.click()
 user.send_keys("koby")
 
+
 password = driver.find_element(By.ID,"password")
 password.click()
 password.send_keys("1112348")
