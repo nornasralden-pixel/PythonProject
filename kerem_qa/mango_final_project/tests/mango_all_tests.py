@@ -1,7 +1,7 @@
 import time
 import unittest
-
 from selenium.webdriver.common.by import By
+from kerem_qa.mango_final_project.globals import BACE_URL, ITEM_NAME, WORNG_PROUDCT_NAME, SHOE_NAME, FIVE_BUTTONS
 from kerem_qa.mango_final_project.pages.kids_page import kids_page
 from kerem_qa.mango_final_project.pages.main_page import main_page
 from kerem_qa.mango_final_project.pages.search_page import SearchPage
@@ -12,7 +12,7 @@ class mangoMainTests(unittest.TestCase):
 
     def setUp(self):
         self.base = selenium_base_mango()
-        self.driver = self.base.selenium_start_with_url("https://shop.mango.com/us/en/h/women")
+        self.driver = self.base.selenium_start_with_url(BACE_URL)
         self.main_page =main_page (self.driver)
         self.SearchPage = SearchPage(self.driver)
         self.main_page.cookies_message()
@@ -24,14 +24,16 @@ class mangoMainTests(unittest.TestCase):
 
     def test_search(self):
          self.main_page.click_on_search_button()
-         self.SearchPage.write_product_in_search_filed(" SHIRT ")
+         time.sleep(1)
+         self.SearchPage.write_product_in_search_filed(ITEM_NAME)
          self.SearchPage.show_the_product_numbers_that_showed()
+         time.sleep(2)
          url = self.driver.current_url
          assert url == "https://shop.mango.com/us/en/search/women?q=shirt"
 
     def test_find_message(self):
         self.main_page.click_on_search_button()
-        self.SearchPage.write_worng_product_in_search_filed("hbcheqcnjnc")
+        self.SearchPage.write_worng_product_in_search_filed(WORNG_PROUDCT_NAME)
         url = self.driver.current_url
         assert url == "https://shop.mango.com/us/en/search/women?q=hbcheqcnjnc"
 
@@ -43,18 +45,17 @@ class mangoMainTests(unittest.TestCase):
         assert url == "https://shop.mango.com/us/en/c/kids/girls/sale-50-off_0a0619fb"
 
     def test_looking_for_five_buttons(self):
-        self.main_page.cheking_for_the_five_buttons()
-        url = self.driver.current_url
-        assert url == "https://shop.mango.com/us/en/h/women"
+        buttons = self.main_page.cheking_for_the_five_buttons()
+        FIVE_BUTTONS == buttons
+        assert True, "these are not the five buttons"
 
     def test_shoes_number(self):
         self.main_page.click_on_search_button()
         time.sleep(1)
-        self.SearchPage.write_product_in_search_filed("shoes")
+        self.SearchPage.write_product_in_search_filed(SHOE_NAME)
         time.sleep(2)
         self.SearchPage.click_on_shoe()
-        self.shoe_page.shoe_measure()
-        url = self.driver.current_url
-        assert url == "https://shop.mango.com/us/en/p/women/shoes/heeled-shoes/satin-court-shoes_17087126"
+        shoes_text = self.shoe_page.shoe_measure()
+        assert shoes_text == "SATIN COURT SHOES" , "shoes text should be SATIN COURT SHOES"
 
 

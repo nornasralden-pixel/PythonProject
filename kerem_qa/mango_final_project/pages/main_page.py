@@ -1,6 +1,4 @@
-
 from selenium.webdriver.common.by import By
-
 
 class main_page():
 
@@ -24,7 +22,8 @@ class main_page():
         kids_category.click()
 
     def cheking_for_the_five_buttons(self):
-        five_buttons = self.driver.find_elements(By.ID,"wrapperMenu")
+        five_buttons_text = []
+        five_buttons = self.driver.find_elements(By.ID, "wrapperMenu")
         for button in five_buttons:
-            button = button.text
-            print(button)
+            five_buttons_text.append(button.text)
+        print(five_buttons_text)

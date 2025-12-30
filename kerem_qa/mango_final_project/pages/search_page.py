@@ -1,7 +1,6 @@
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 
-
 class SearchPage():
     def __init__(self, driver):
         self.driver = driver
@@ -17,7 +16,6 @@ class SearchPage():
         number_of_shirts = len(number_of_shirts)
         if number_of_shirts > 0:
             print(number_of_shirts)
-
 
     def write_worng_product_in_search_filed(self,worng_product_name):
         click_search = self.driver.find_element(By.NAME,"search")
