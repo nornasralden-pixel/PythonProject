@@ -1,5 +1,5 @@
 BACE_URL = "https://shop.mango.com/us/en/h/women"
 ITEM_NAME = "SHIRT"
-WORNG_PROUDCT_NAME = "hbcheqcnjnc"
+WORNG_PROUDCT_NAME = " hbcheqcnjnc "
 SHOE_NAME = "shoes"
-FIVE_BUTTONS = 'WOMEN\nMEN\nTEEN\nKIDS\nHOME'
+FIVE_BUTTONS = "WOMEN\nMEN\nTEEN\nKIDS\nHOME"
