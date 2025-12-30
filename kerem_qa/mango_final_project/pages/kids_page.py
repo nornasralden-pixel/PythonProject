@@ -9,6 +9,7 @@ class kids_page:
     def __init__(self, driver):
         self.driver = driver
 
+
     def pick_girls_filed_and_item_price(self):
         girls_section= self.driver.find_element(*KidsPageLocators.GIRLS_SECTION)
         girls_section.click()
