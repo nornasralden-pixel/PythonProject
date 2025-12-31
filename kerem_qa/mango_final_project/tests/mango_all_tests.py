@@ -1,7 +1,7 @@
 import time
 import unittest
 from selenium.webdriver.common.by import By
-from kerem_qa.mango_final_project.globals import BACE_URL, ITEM_NAME, WORNG_PROUDCT_NAME, SHOE_NAME, FIVE_BUTTONS
+from kerem_qa.mango_final_project.globals import BACE_URL, ITEM_NAME, WORNG_PROUDCT_NAME, SHOE_NAME
 from kerem_qa.mango_final_project.pages.kids_page import kids_page
 from kerem_qa.mango_final_project.pages.main_page import main_page
 from kerem_qa.mango_final_project.pages.search_page import SearchPage
@@ -53,9 +53,7 @@ class mangoMainTests(unittest.TestCase):
         self.main_page.click_on_search_button()
         time.sleep(1)
         self.SearchPage.write_product_in_search_filed(SHOE_NAME)
-        time.sleep(2)
+        time.sleep(1)
         self.SearchPage.click_on_shoe()
         shoes_text = self.shoe_page.shoe_measure()
         assert shoes_text == "SATIN COURT SHOES" , "shoes text should be SATIN COURT SHOES"
-
-
