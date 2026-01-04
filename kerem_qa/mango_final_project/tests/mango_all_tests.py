@@ -36,7 +36,7 @@ class mangoMainTests(unittest.TestCase):
         time.sleep(1)
         self.SearchPage.write_worng_product_in_search_filed(WORNG_PROUDCT_NAME)
         url = self.driver.current_url
-        assert url == "https://shop.mango.com/us/en/search/women?q=hbcheqcnjnc"
+        assert url == 'https://shop.mango.com/us/en/search/women?q=hbcheqcnjnc'
 
     def test_find_girls_clothes(self):
         self.main_page.click_on_kids_section()
@@ -47,7 +47,7 @@ class mangoMainTests(unittest.TestCase):
 
     def test_looking_for_five_buttons(self):
         buttons = self.main_page.cheking_for_the_five_buttons()
-        assert buttons == 5 , "these are not the five buttons"
+        assert buttons == 5 , 'there is no 5 five buttons'
 
     def test_shoes_number(self):
         self.main_page.click_on_search_button()
